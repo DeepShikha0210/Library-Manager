@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Library Management System</title>
+  </head>
+  <body>
+    <!--  NAVBAR-->
+    
+   
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Library Management System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/home}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/viewBooks}">View Books</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/addBook}" tabindex="-1" aria-disabled="true">Add Book</a>
+        </li>
+        
+          <li class="nav-item">
+          <a class="nav-link" th:href="@{/viewUsers}">View Users</a>
+        </li>
+      
+      </ul>
+      <form class="d-flex" action="#" th:action="@{/search}"  method="post">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success"  type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+    <!-- NAVBAR -->
+    <div class="container"  >
+    <div class="row justify-content-center" style="margin-top: 25px ;" >
+   <div class="card text-dark bg-light m-auto" style="width: 30rem; ">
+  <div class="card-body text-center">
+    <h5 class="card-title">Book Details: </h5>
+   
+  </div>
+    <p><b>BOOK ID:</b></p><p th:text="${book.bookId}"></p><br/>
+    <p><b>BOOK TITLE:</b></p><p th:text="${book.bookTitle}"></p><br/>
+    <p><b>BOOK AUTHOR:</b></p> <p th:text="${book.bookAuthor}"></p><br/>
+    <p><b>ISBN NO:</b></p> <p th:text="${book.ISBN}"></p><br/>
+    <p><b>AVAILABLE COPIES:</b></p> <p  th:text="${book.numberCopies}"></p><br/>
+  
+  <div class="card-body">
+    <a class="btn btn-lg btn-success card-link" th:href="@{/issueBook/{id}(id=${book.bookId})}" type="submit">Issue</a>
+
+  </div>
+</div>
+</div>
+</div>
+ 
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
